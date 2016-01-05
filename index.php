@@ -7,13 +7,12 @@ try {
     $query = "Select * from clientes;";
 
     $stmt = $conexao->query($query);
-    $resultado = $stmt->fetchAll(PDO::FETCH_CLASS);
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    foreach($resultado as $cliente){
-        echo $cliente->nome . PHP_EOL;
-    }
+    #echo $cliente->nome . PHP_EOL;
 
-    #print_r( $resultado );
+
+    print_r( $resultado );
 }
 catch(\PDOException $e) {
     echo "Não foi possível estabelecer a conexão com o banco de dados. Erro código:".$e->getCode().": ".$e->getMessage();
